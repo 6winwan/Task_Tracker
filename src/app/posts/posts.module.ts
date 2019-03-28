@@ -1,0 +1,31 @@
+import {NgModule} from '@angular/core';
+
+import { ReactiveFormsModule} from '@angular/forms';
+
+import { PostCreateComponent} from './post-create/post-create.component';
+import { PostListComponent} from './post-list/post-list.component';
+import { AngularMaterialModule } from '../angular-material.module';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatIconModule } from '@angular/material/icon';
+import { MatSelectModule } from '@angular/material/select';
+
+
+@NgModule({
+  declarations: [
+    PostCreateComponent,
+    PostListComponent
+  ],
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    AngularMaterialModule,
+    RouterModule,
+    FlexLayoutModule,
+    MatIconModule,
+    MatSelectModule
+  ]
+
+})
+export class PostsModule {}

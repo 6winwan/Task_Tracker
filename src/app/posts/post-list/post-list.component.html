@@ -1,0 +1,85 @@
+<mat-spinner *ngIf="loading"></mat-spinner>
+
+<div class="container" fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="2%" fxLayoutAlign="center">
+  <div fxFlex="40%;" fxFlex.xs="80%">
+    <mat-card [style.backgroundColor]="'#f4c441'">
+      <mat-card-header>
+        <mat-card-title>Planned</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-accordion multi="true" *ngIf="posts.length > 0 && !loading">
+          <mat-expansion-panel *ngFor="let post of posts" >
+            <mat-expansion-panel-header class="title" *ngIf="post.status === 'plan'">
+              {{ post.title }}
+            </mat-expansion-panel-header>
+            <hr>
+            <p>{{ post.content }}</p>
+            <hr>
+            <p class="right">Registered Time: {{ post.createdAt | date:'yyyy-MM-dd'}}</p>
+            <p class="right">Elasped Day(s): {{ (this.els - post.createdAt)/86400000 | number:'1.0-0' }}</p>
+            <mat-action-row>
+              <a mat-button color="primary" [routerLink]="['/edit', post.id]"><mat-icon class="vertical-align-middle">edit</mat-icon>EDIT</a>
+              <button mat-button color="warn" (click)="onDelete(post.id)"><mat-icon class="vertical-align-middle">delete</mat-icon>DELETE</button>
+            </mat-action-row>
+          </mat-expansion-panel>
+        </mat-accordion>
+        <p class="info-text mat-body-1" *ngIf="posts.length <=0 && !loading">No posts added yet!</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <div fxFlex="40%;" fxFlex.xs="80%">
+    <mat-card [style.backgroundColor]="'#50b5e0'">
+      <mat-card-header>
+        <mat-card-title>In Progress</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-accordion multi="true" *ngIf="posts.length > 0 && !loading">
+          <mat-expansion-panel *ngFor="let post of posts">
+            <mat-expansion-panel-header class="title" *ngIf="post.status === 'progress'">
+                {{ post.title }}
+              </mat-expansion-panel-header>
+              <hr>
+              <p>{{ post.content }}</p>
+              <hr>
+              <p class="right">Registered Time: {{ post.createdAt | date:'yyyy-MM-dd'}}</p>
+              <p class="right">Elasped Day(s): {{ (this.els - post.createdAt)/86400000 | number:'1.0-0' }}</p>
+              <mat-action-row>
+              <a mat-button color="primary" [routerLink]="['/edit', post.id]"><mat-icon class="vertical-align-middle">edit</mat-icon>EDIT</a>
+              <button mat-button color="warn" (click)="onDelete(post.id)"><mat-icon class="vertical-align-middle">delete</mat-icon>DELETE</button>
+            </mat-action-row>
+          </mat-expansion-panel>
+        </mat-accordion>
+        <p class="info-text mat-body-1" *ngIf="posts.length <=0 && !loading">No posts added yet!</p>
+      </mat-card-content>
+    </mat-card>
+    </div>
+
+    <div fxFlex="40%;" fxFlex.xs="80%">
+    <mat-card [style.backgroundColor]="'#38a545'">
+        <mat-card-header>
+          <mat-card-title>Completed</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <mat-accordion multi="true" *ngIf="posts.length > 0 && !loading">
+            <mat-expansion-panel *ngFor="let post of posts">
+              <mat-expansion-panel-header class="title" *ngIf="post.status === 'complete'">
+                  {{ post.title }}
+                </mat-expansion-panel-header>
+                <hr>
+                <p>{{ post.content }}</p>
+                <hr>
+                <p class="right">Registered Time: {{ post.createdAt | date:'yyyy-MM-dd'}}</p>
+                <p class="right">Elasped Day(s): {{ (this.els - post.createdAt)/86400000 | number:'1.0-0' }}</p>
+                <mat-action-row>
+                <a mat-button color="primary" [routerLink]="['/edit', post.id]"><mat-icon class="vertical-align-middle">edit</mat-icon>EDIT</a>
+                <button mat-button color="warn" (click)="onDelete(post.id)"><mat-icon class="vertical-align-middle">delete</mat-icon>DELETE</button>
+              </mat-action-row>
+            </mat-expansion-panel>
+          </mat-accordion>
+          <p class="info-text mat-body-1" *ngIf="posts.length <=0 && !loading">No posts added yet!</p>
+        </mat-card-content>
+    </mat-card>
+
+  </div>
+</div>

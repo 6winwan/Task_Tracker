@@ -1,0 +1,45 @@
+mat-form-field,
+textarea {
+  width: 100%;
+}
+
+mat-spinner{
+  margin: auto;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.right {
+  text-align: right
+}
+
+.plan {
+  background-color: #f4c441;
+}
+.plan:hover{
+  background-color: #bd9833;
+}
+
+.progress {
+  background-color: #50b5e0;
+}
+.progress:hover {
+  background-color: #377d9b;
+}
+
+.complete {
+  background-color: #38a545;
+}
+.complete:hover {
+  background-color: #23692c;
+}
+
+.time {
+  color: grey;
+}
+
+.form {
+  background-color: rgb(242, 247, 255);
+}

@@ -1,0 +1,43 @@
+<mat-card class="form">
+  <mat-spinner *ngIf="loading"></mat-spinner>
+
+  <form [formGroup]='form' (submit)="onSavePost()" *ngIf="!loading">
+    <mat-form-field>
+      <mat-select placeholder="Status" formControlName="status">
+        <mat-option class="plan" value="plan">Planning</mat-option>
+        <mat-option class="progress" value="progress">In progress</mat-option>
+        <mat-option class="complete" value="complete">Complete</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input
+        matInput
+        type="text"
+        formControlName="title"
+        placeholder="Task Title: Minimum 6 letter words">
+      <mat-error *ngIf="form.get('title').invalid">Please enter min 6 letters</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+       <textarea
+         matInput
+        rows="4"
+        formControlName="content"
+        placeholder="Your content">
+      </textarea>
+      <mat-error *ngIf="form.get('content').invalid">Please enter content</mat-error>
+    </mat-form-field>
+
+    <p class="time">Created on {{form.value.createdAt | date:'yyyy-MM-dd'}}</p>
+
+
+    <div class="right">
+      <button
+        mat-raised-button
+        color="primary"
+        type="submit"><mat-icon>save_alt</mat-icon>  Save Task
+      </button>
+    </div>
+  </form>
+</mat-card>

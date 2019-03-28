@@ -1,0 +1,31 @@
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+a:hover {
+  text-decoration: none;
+  color: rgb(199, 182, 182);
+}
+.spacer {
+  flex: 1 1 auto;
+}
+
+.mat-toolbar {
+  background-color:#DE6449;
+}
+
+.vertical-align-middle {
+  vertical-align: middle;
+}
+
+button:hover {
+  background-color: blue;
+}
+
